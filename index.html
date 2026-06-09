@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موماكس - متجر المستلزمات الإلكترونية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Original Momax Logo Style -->
+                    <defs>
+                        <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6B3FA0;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#4A2573;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Outer Circle -->
+                    <circle cx="100" cy="100" r="95" fill="none" stroke="url(#purpleGrad)" stroke-width="3"/>
+                    <circle cx="100" cy="100" r="88" fill="url(#purpleGrad)"/>
+                    
+                    <!-- Gray decorative arc (top right) -->
+                    <path d="M 160 40 A 80 80 0 0 1 180 80" fill="none" stroke="#C0C0C0" stroke-width="4" stroke-linecap="round"/>
+                    
+                    <!-- Main Text: M -->
+                    <text x="70" y="140" font-family="Cairo, sans-serif" font-size="90" font-weight="900" fill="white" text-anchor="middle">م</text>
+                    
+                    <!-- Decorative Rx -->
+                    <text x="130" y="130" font-family="Cairo, sans-serif" font-size="32" font-weight="700" fill="white">Rx</text>
+                    
+                    <!-- Store Name -->
+                    <text x="100" y="165" font-family="Cairo, sans-serif" font-size="28" font-weight="700" fill="white" text-anchor="middle">موماكس</text>
+                </svg>
+            </div>
+            <nav class="nav">
+                <button class="nav-item active" data-category="all">جميع المنتجات</button>
+                <button class="nav-item" id="cart-icon">
+                    <span>🛒 السلة</span>
+                    <span id="cart-count" class="cart-count">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="products-section">
+            <h1 class="section-title">منتجاتنا المميزة</h1>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cartModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>سلة التسوق</h2>
+                <button class="close-btn" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be displayed here -->
+            </div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>الإجمالي:</span>
+                    <span id="totalPrice" class="price">0 ريال</span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">إتمام الطلب عبر واتساب</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal hidden">
+        <div class="modal-content product-modal">
+            <button class="close-btn" id="closeProduct">&times;</button>
+            <div class="product-detail">
+                <img id="modalProductImage" src="" alt="" class="product-modal-image">
+                <div class="product-info">
+                    <h2 id="modalProductName"></h2>
+                    <p id="modalProductDesc" class="product-description"></p>
+                    <div class="price-section">
+                        <span class="price" id="modalProductPrice"></span>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" id="decreaseQty">-</button>
+                        <input type="number" id="quantityInput" value="1" min="1">
+                        <button class="qty-btn" id="increaseQty">+</button>
+                    </div>
+                    <button class="add-to-cart-btn" id="addToCartBtn">إضافة إلى السلة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 متجر موماكس - جميع الحقوق محفوظة</p>
+            <p>متخصصون في بيع المستلزمات الإلكترونية الأصلية</p>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
